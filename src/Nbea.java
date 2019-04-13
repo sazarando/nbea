@@ -8,8 +8,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Nbea {
-	public static void main(String[] args) throws IOException
-	{	
+	
+	public static void main(String[] args) throws IOException {
+		
 		String oldBackupFilesFileName = "C:\\TEST\\Old.sha1.txt";
 		String newBackupFilesFileName = "C:\\TEST\\New.sha1.txt";
 		String oldNotInNewFileName = "C:\\TEST\\OldNotInNew.txt";
@@ -47,9 +48,8 @@ public class Nbea {
 		bWriter.close();
 	}
 	
-
-	
 	public static HashMap<String, String> fileToHashMap(String filename) throws IOException {
+		
 		BufferedReader bReader = new BufferedReader(new FileReader(filename));
 		HashMap<String, String> hMap = new HashMap<String, String>(); 
 		
