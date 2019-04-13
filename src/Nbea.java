@@ -3,8 +3,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
-import java.util.Map;
 import java.util.HashMap;
 
 public class Nbea {
@@ -22,10 +20,8 @@ public class Nbea {
 		
 		//Look for "Old Not in New" - "Present in Old, but Missing from New"
 		writeMismatchesToFile(oldNotInNewFileName, oldFileHmap, newFileHmap);
+		//Look for "New Not in Old" - "Present in New, but Missing from Old"
 		writeMismatchesToFile(newNotInOldFileName, newFileHmap, oldFileHmap);
-		
-		oldFileHmap.forEach((k,v) -> System.out.println("key: "+k+" value:"+v));
-		
 	}
 	
 	public static void writeMismatchesToFile(String filename
@@ -33,6 +29,7 @@ public class Nbea {
 			, HashMap<String, String> hMap02) throws IOException {
 		
 		BufferedWriter bWriter = new BufferedWriter(new FileWriter(filename));
+		
 		
 		hMap01.forEach((k,v) -> {
 			if (hMap02.containsKey(k)) { //do nothing
@@ -56,6 +53,7 @@ public class Nbea {
 		String line = bReader.readLine();
 		StringBuffer keySHA = new StringBuffer();
 		StringBuffer valueFileName = new StringBuffer();
+
 		
 		while (line != null) {
 			keySHA.delete(0, keySHA.length()); //reset variables
