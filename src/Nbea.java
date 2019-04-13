@@ -22,6 +22,8 @@ public class Nbea {
 		writeMismatchesToFile(oldNotInNewFileName, oldFileHmap, newFileHmap);
 		//Look for "New Not in Old" - "Present in New, but Missing from Old"
 		writeMismatchesToFile(newNotInOldFileName, newFileHmap, oldFileHmap);
+		
+		System.out.println("Finished!");
 	}
 	
 	public static void writeMismatchesToFile(String filename
