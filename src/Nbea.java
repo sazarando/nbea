@@ -55,10 +55,11 @@ public class Nbea {
 		StringBuffer valueFileName = new StringBuffer();
 
 		
-		while (line != null) {
+		while (line != null) { //read file in line-by-line and store data in HashMap
 			keySHA.delete(0, keySHA.length()); //reset variables
 			valueFileName.delete(0, valueFileName.length());
 			
+			//No malformed-input checking
 			keySHA.append(line.substring(0, line.indexOf(' '))); //grab first 40 chars - (up to index of first space char)
 			valueFileName.append(line.substring(line.indexOf(' ')+1)); //grab all chars after first space char
 			
